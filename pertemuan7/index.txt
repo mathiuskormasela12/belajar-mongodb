@@ -1,0 +1,87 @@
+========= Belajar MongoDB =========
+
+A. Belajar Aggregations
+   Aggregation berfungsi untuk mengelola
+   data dalam collection untuk mendapatkan
+   data baru, melalui data yg sudah ada.
+   yang akan ditampilkan.
+   
+   rumus :
+   db.lomba.count()
+   
+   kode diatas berfungsi untuk menghitung
+   jumlah document yg berada dalam collection
+   lomba.
+   
+   rumus :
+   db.lomba.count({jenisLomba: "sepakbola"})
+   
+   kode diatas berfungsi untuk menghitung jumlah
+   document yg memiliki field jenisLomba dengan
+   nilai "sepakbola".
+   
+   rumus :
+   db.lomba.distinct("kelas")
+   
+   Kode diatas berfungsi untuk menampilkan
+   semua nilai pada field kelas dan jika
+   ada nilainya yg sama maka ambil salah satunya
+   saja.
+   
+   rumus :
+   db.lomba.aggregate([
+   {$group: {_id: "$jenisLomba", totalJenisLomba: {$sum: 1}}}
+   ])
+   
+   cara baca kode diatas :
+   1. Data awal
+   {jenisLomba: "sepakbola", kelas:"7", menang:2, kalah: 3},
+   {jenisLomba: "volly", kelas:"7", menang:3, kalah: 2},
+   {jenisLomba: "basket", kelas:"7", menang:3, kalah: 1},
+   {jenisLomba: "sepakbola", kelas:"8", menang:5, kalah: 1},
+   {jenisLomba: "volly", kelas:"8", menang:4, kalah: 2},
+   {jenisLomba: "basket", kelas:"8", menang:4, kalah: 3},
+   {jenisLomba: "sepakbola", kelas:"9", menang:3, kalah: 3},
+   {jenisLomba: "volly", kelas:"9", menang:4, kalah: 1},
+   {jenisLomba: "basket", kelas:"9", menang:3, kalah: 2},
+   
+   2. Grouping Data menggunakan jenisLomba
+   {_id: "sepakbola", totalJenisLomba: 3}
+   {_id: "volly", totalJenisLomba: 3},
+   {_id: "basket", totalJenisLomba: 3}
+   
+   rumus : (match untuk memfilter document)
+   db.lomba.aggregate([
+   {$match: {jenisLomba: {$in: ["volly", "basket"]}}},
+   {$group: {_id:"$jenisLomba", totalMenang: {$sum:"$menang"}}},
+   {$sort: {totalMenang: 1}}
+   ])
+   
+   Cara baca :
+   1. Awal
+   {jenisLomba: "sepakbola", kelas:"7", menang:2, kalah: 3},
+   {jenisLomba: "volly", kelas:"7", menang:3, kalah: 2},
+   {jenisLomba: "basket", kelas:"7", menang:3, kalah: 1},
+   {jenisLomba: "sepakbola", kelas:"8", menang:5, kalah: 1},
+   {jenisLomba: "volly", kelas:"8", menang:4, kalah: 2},
+   {jenisLomba: "basket", kelas:"8", menang:4, kalah: 3},
+   {jenisLomba: "sepakbola", kelas:"9", menang:3, kalah: 3},
+   {jenisLomba: "volly", kelas:"9", menang:4, kalah: 1},
+   {jenisLomba: "basket", kelas:"9", menang:3, kalah: 2},
+
+   2. Filter berdasarkan jenisLomba
+   {jenisLomba: "volly", kelas:"7", menang:3, kalah: 2},
+   {jenisLomba: "volly", kelas:"8", menang:4, kalah: 2},
+   {jenisLomba: "volly", kelas:"9", menang:4, kalah: 1},
+   {jenisLomba: "basket", kelas:"7", menang:3, kalah: 1},
+   {jenisLomba: "basket", kelas:"8", menang:4, kalah: 3},
+   {jenisLomba: "basket", kelas:"9", menang:3, kalah: 2},
+
+   3. Grouping
+   {_id:"volly", totalMenang: 11},
+   {_id:"basket", totalMenang: 10}
+   
+   4. Mengurutkan secara A-Z
+   {_id:"basket", totalMenang: 10},
+   {_id:"volly", totalMenang: 11}
+   

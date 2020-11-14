@@ -1,0 +1,55 @@
+========= Belajar MongoDB =========
+
+A. Belajar Projection
+   Projection berfungsi untuk membatasi jumlah field
+   yang akan ditampilkan.
+   
+   rumus :
+   db.sensei.find({}, {name: 1}).pretty()
+
+   Kode diatas berfungsi untuk menampilkan hanya field
+   _id dan name. field _id akan selalu secara otomatis
+   ditampilkan walaupun kita tidak menuliskannya
+   di projection. Lambang {} pada parameter pertama
+   dapat diganti dengan boolean false atau 0.
+   
+   rumus :
+   db.sensei.find({}, {name:1, _id:0}) 
+   
+   Kode diatas berfungsi untuk hanya menampilkan
+   field name saja (field _id tidak akan ditampilkan)
+   Lambang {} pada parameter pertama dapat diganti 
+   dengan boolean false atau 0.
+   
+B. Belajar Skip
+   rumus :  
+   db.sensei.find().skip(2)
+   
+   Kode diatas berfungsi untuk menampilkan
+   document pada urutan ke 3 sampai seterusnya
+   Document pertama dan kedua diskip karena
+   document nya di skip dua dokumen
+
+C. Belajar Limit
+   rumus :
+   db.sensei.find().limit(5)
+   
+   Kode diatas berfungsi untuk menampilkan
+   hanya 5 document saja. Karena dibatasi
+   oleh limit.
+
+D. Sort
+   rumus :
+   db.sensei.find().sort({name: 1})
+   
+   Kode diatas berfungsi untuk menampilkan
+   semua document dan field namenya diurutkan
+   secara ascending(A-z).
+   
+   rumus :
+   db.sensei.find().sort({name:-1}) 
+   
+   Kode diatas berfungsi untuk menampilkan
+   semua document dan filed namenya akan
+   di urutkan secara Descending (Z-A)
+

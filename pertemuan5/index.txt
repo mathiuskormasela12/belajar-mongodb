@@ -1,0 +1,37 @@
+========= Belajar MongoDB =========
+
+A. Belajar Update Document   
+   rumus :
+   db.sensei.update({age: 28}, {$set: {name: "Harutya"}});
+
+   Kode diatas berfungsi untuk mengubah value dari field
+   name menjadi "Harutya" pada sebuah document yg memiliki
+   field age dengan nilai 28.
+   
+   rumus :
+   db.sensei.update({age: 28}, {$set: {name: "Harutya"}}, {multi: true})
+   
+   Kode diatas berfungsi untuk mengubah nilai dari field name
+   menjadi "Harutya" pada setiap document yg memiliki
+   field age dengan nilai 28.
+   
+   rumus :
+   db.sensei.save({_id: ObjectId("5ef0e4f09ca13aa2b1ac175b"), name: "Naruto", age: 28, subject: "Algorithm"})
+   
+   Kode diatas berfungsi untuk mengubah nilai dari field name, age & subject
+   pada sebuah document yg memiliki field _id dengan nilai      ObjectId("5ef0e4f09ca13aa2b1ac175b").
+
+B. Belajar Menghapus Document
+   rumus :  
+   db.sensei.remove({age: 28});
+   
+   Kode diatas berfungsi untuk menghapus semua document
+   yang memiliki field age dengan nilai 28.
+   
+   rumus :
+   db.sensei.remove({age: 28}, true)
+   
+   Kode diatas berfungsi untuk menghapus sebuah
+   document yg memiliki field age dengan nilai 28.
+
+

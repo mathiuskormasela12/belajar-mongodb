@@ -1,0 +1,39 @@
+========= Belajar MongoDB =========
+
+A. Belajar Membuat Document ( Create Document/Data )   
+   rumus :
+   db.namaCollection.insert({"field": "value"})
+
+   Kode diatas berfungsi untuk membuat atau 
+   menambahkan sebuah document/data kedalam
+   collection pada MongoDB. Ketika kita
+   menambahkan document baru, MongoDB juga
+   akan secara otomatis membuatkan field
+   _id yg berisi id yg unik walaupun kita 
+   tidak membuatnya.
+
+   rumus :
+   db.namaCollection.insert([{"username": "mathius"}, {"password": "123"}, dst])
+   
+   Kode diatas berfungsi untuk membuat atau menambahkan 
+   beberapa document sekaligus kedalam sebuah collection.
+   Ketika kita menambahkan document baru, MongoDB juga
+   akan secara otomatis membuatkan field _id yg berisi 
+   id yg unik walaupun kita tidak membuatnya.
+
+B. Belajar Menampilkan Document
+   rumus :  
+   db.namaCollection.find()
+   
+   Kode diatas berfungsi untuk menampilkan semua document
+   atau data yang ada dalam sebuah collection. Kita dapat
+   menambahkan method pretty() agar document ditampilkan
+   secara lebih rapih dan cantik
+   
+   rumus :
+   db.namaCollection.findOne()
+   
+   Kode diatas berfungsi untuk menampilkan sebuah data
+   dalam collection yang tersedia. Document yg ditampilkan
+   adalah document yg berada di urutan pertama
+

@@ -1,0 +1,39 @@
+========= Belajar MongoDB =========
+
+A. Pengertian
+   MongoDB adalah DBMS yang berkonsep
+   NOSQL (Not Only Sql). Dalam Mongodb
+   database tetap disebut sebagai database,
+   namun konsep table diganti menjadi collections
+   dan row menjadi document serta column menjadi field.
+   Dalam MongoDB, data akan disimpan dalam format
+   JSON atau BSON (Binary JSON).
+
+B. Materi
+
+   a. Membuat database
+      rumus :
+      use namaDatabaseBaru
+
+      Perintah use berfungsi untuk mengaktifkan
+      suatu database dalam MongoDB jika database
+      tersebut sudah ada, namun jika database tersebut
+      tidak tersedia, maka MongoDB akan secara otomatis
+      membuatkannya lalu mengaktifkannya.
+
+   b. Menampilkan daftar database
+      rumus : 
+      show dbs
+
+      Database yang akan ditampilkan
+      dengan perintah show dbs adalah hanya
+      database yg memiliki data (minimal 1 document).
+   
+   c. Menghapus database
+      rumus :
+      db.dropDatabase()
+      
+      perintah diatas berfungsi untuk
+      menghapus database yang sedang aktif.
+      Untuk mengecek database apa yg sedang aktif
+      kita bisa menuliskan perintah db.

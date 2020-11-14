@@ -1,0 +1,34 @@
+========= Belajar MongoDB =========
+
+A. Belajar Membuat Collection   
+   rumus :
+   db.createCollection('namaCollection', option)
+
+   Dalam MongoDB namaCollection disebut
+   sebagai label collection. Option adalah
+   paramater optional yg berisi tenteng
+   jumlah maksimal document yang dapat
+   ditampung collection yg dibuat atau berisi
+   dengan validator dll.
+
+   rumus :  
+   db.namaCollection.insert({"fieldPertama": "valuenya"})
+   
+   Kode diatas berfungsi untuk memasukan data
+   kedalam sebuah collection. Jika collection
+   tersebut sudah ada, maka data akan langsung
+   dimasukan, namun jika collections belum tersedia
+   maka MongoDB akan secara otomatis membuat
+   collection tersebut terlebih dahulu setelah itu
+   baru masukan datanya.
+
+B. Untuk Menampilkan Collection yg Tersedia
+   rumus :
+   show collections
+
+C. Untuk Menghapus Collection
+   rumus :
+   db.namaCollection.drop()
+  
+
+  

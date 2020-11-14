@@ -1,0 +1,56 @@
+========= Belajar MongoDB =========
+
+A. Belajar Menampilkan Document Menurut Sebuah Kondisi Tertentu   
+   rumus :
+   db.namaCollection.find({nama: "Harutya"}).pretty();
+
+   Kode diatas berfungsi untuk menampilkan
+   document yang memiliki field nama dengan
+   value string "Harutya".
+
+B. Belajar Menampilkan Document Menurut Beberapa Kondisi Tertentu ( and )
+   rumus :  
+   db.namaCollection.find({name: "Harutya", age: 28}).pretty()
+   
+   Kode diatas berfungsi untuk menampilkan semua document
+   yang memiliki field name dengan value "Harutya" dan age 
+   dengan value 28.
+
+C. Belajar Menampilkan Document Dengan Operator OR
+   rumus :
+   db.namaCollection.find({ $or: [{name: "Harutya"}, {subject: "Database"}] }).pretty()
+   
+   Kode diatas berfungsi untuk menampilkan document yg memiliki
+   field name dengan value "Harutya" atau field subject dengan
+   value "Database".
+
+D. Belajar Menampilkan Document Dengan Operator IN
+   rumus :
+   db.namaCollection.find({name: { $in: ['Harutya', 'Haruka'] }}).pretty()
+   
+   Kode diatas berfungsi untuk menampilkan document
+   yang memiliki name dengan value "Harutya" dan "Haruka".
+
+E. Belajar Menampilkan Document Dengan Operator Less Than
+   rumus :
+   db.sensei.find({ age: { $lt: 26 } }).pretty()
+   
+   Kode diatas berfungsi untuk menampilkan document
+   yang memiliki age dibawah 26.
+
+F. Belajar Menampilkan Data Dengan Operator Greater Than
+   rumus :
+   db.sensei.find({age: {$gt: 30}}).pretty()
+   
+   Kode diatas untuk menampilkan document yg memiliki
+   age lebih dari 30.
+
+G. Belajar Menampilkan Data Dengan Operator Not Equal
+   rumus: 
+   db.sensei.find({age: { $ne: 40 }}).pretty()
+   
+   Kode diatas untuk menampilkan document yg memiliki
+   age bukan 40.
+  
+   
+
